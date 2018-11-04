@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
     echo "stack ALL=(ALL) NOPASSWD: ALL" | tee /etc/sudoers.d/stack
 
     cd /opt/stack
-    su stack -c 'git clone --depth 1 https://git.openstack.org/openstack-dev/devstack'
+    su stack -c 'git clone -b stable/rocky --depth 1 https://git.openstack.org/openstack-dev/devstack'
     cd /opt/stack/devstack
     su stack -c 'cp /tmp/local.conf .'
     su stack ./stack.sh
